@@ -1,0 +1,61 @@
+﻿@page
+@model Asesoria_Legal.Pages.RegistroModel
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+<img src="~/images/logo 3.png" alt="Asesoría Legal Global" class="img-fluid banner-registro mb-3" />
+        <h2 class="mb-4">Registro de clientes</h2>
+
+        <form method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Correo" class="form-label"></label>
+                <input asp-for="Input.Correo" class="form-control" type="email" />
+                <span asp-validation-for="Input.Correo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.NombreUsuario" class="form-label"></label>
+                <input asp-for="Input.NombreUsuario" class="form-control" />
+                <span asp-validation-for="Input.NombreUsuario" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Input.Nombre" class="form-label"></label>
+                    <input asp-for="Input.Nombre" class="form-control" />
+                    <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Input.Apellido" class="form-label"></label>
+                    <input asp-for="Input.Apellido" class="form-control" />
+                    <span asp-validation-for="Input.Apellido" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Edad" class="form-label"></label>
+                <input asp-for="Input.Edad" class="form-control" type="number" />
+                <span asp-validation-for="Input.Edad" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Password" class="form-label"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.ConfirmarPassword" class="form-label"></label>
+                <input asp-for="Input.ConfirmarPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmarPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Registrar</button>
+        </form>
+    </div>
+</div>

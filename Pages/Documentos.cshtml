@@ -1,0 +1,42 @@
+﻿@page
+@model Asesoria_Legal.Pages.DocumentosModel
+@{
+    ViewData["Title"] = "Mis documentos";
+}
+
+<h2>Espacio personal de @Model.Usuario</h2>
+<p class="text-muted">Subí tus documentos legales (PDF, Word o imágenes, máx. 5 MB).</p>
+
+@if (!string.IsNullOrEmpty(Model.Mensaje))
+{
+    <div class="alert alert-success">@Model.Mensaje</div>
+}
+
+<form method="post" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+        <label asp-for="Archivo" class="form-label">Archivo</label>
+        <input asp-for="Archivo" type="file" class="form-control"
+               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+        <span asp-validation-for="Archivo" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Subir documento</button>
+</form>
+
+<h4>Documentos cargados</h4>
+@if (Model.Archivos.Count == 0)
+{
+    <p>Todavía no subiste ningún documento.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var archivo in Model.Archivos)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>@archivo</span>
+                <a asp-page-handler="Descargar" asp-route-nombre="@archivo"
+                   class="btn btn-sm btn-outline-primary">Descargar</a>
+            </li>
+        }
+    </ul>
+}
